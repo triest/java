@@ -1,0 +1,61 @@
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
+
+/**
+ * Created by triest on 17.04.2017.
+ */
+public class PeriodicChecker extends Thread {
+    static Http1 http1;
+    static File file;
+    public String[] SiteList;
+
+    public void setSiteList(String[] siteList) {
+        SiteList = siteList;
+    }
+
+    public PeriodicChecker() throws IOException {
+   //    file=new File("E://Dropbox//Java//TasksGithub//SiteCheker//src//SiteHistory.txt");
+        file=new File();
+
+    }
+
+    public String[] getSiteList() {
+        return SiteList;
+    }
+
+    @Override
+    public void run()
+    {
+
+        while(true) {
+            System.out.println("Thread is doing something");
+            try {
+            //    for(int i=0;i<SiteList.length;i++) {
+                for (String site:this.SiteList){
+                  //  String site = SiteList[i];
+                    int tempResponse = http1.getHTTPResponseStatusCode(site);
+
+                    System.out.println(tempResponse);
+                    //тут ндо добавить текущее время и затем записать в файл
+                    // строка, которую будем записывать
+                    Date curTime = new Date();
+                    DateFormat dtfrm = DateFormat.getDateInstance();
+                    String dateTime = dtfrm.format(curTime);
+                    Date date = new Date(System.currentTimeMillis());
+                    String toWriteToFile = site + ":" + date.getYear() + " " + " " + date.getHours() + ":" + date.getMinutes() + ":Response:" + tempResponse;
+                    file.writeToFile(toWriteToFile);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+}

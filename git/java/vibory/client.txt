@@ -1,0 +1,146 @@
+/**
+ * Created by triest on 12.06.2017.
+ */
+public class Main {
+/*
+    public static void main(String[] args) throws IOException {
+     Client client=new Client();
+ //    client.Connect();
+   //  client.UserEnter();
+//     client.SendTextMessage("TextMessage");
+  //   client.SendLoginAndPasswordToServer();
+     //   client.UserEnter();
+       // client.SendTextMessage("Text");
+  //   client.ClientExample();
+        /*
+    Client2 client2=new Client2();
+         client2.exampl();
+
+
+        final String host = "localhost";
+        final int portNumber = 444;
+        System.out.println("Creating socket to '" + host + "' on port " + portNumber);
+        Socket socket;
+        PrintWriter out;
+        BufferedReader br;
+        BufferedReader userInputBR;
+
+        socket = new Socket(host, portNumber);
+        while (true) {
+         br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           out = new PrintWriter(socket.getOutputStream(), true);
+            userInputBR = new BufferedReader(new InputStreamReader(System.in));
+
+            //...code...
+
+        }
+     //   socket.close();
+        /*out.close();
+        br.close();
+        userInputBR.close();
+    }
+    */
+
+
+
+// оригинал
+/*
+        public static void main(String argv[]) throws Exception {
+            String sentence;
+            String modifiedSentence;
+            BufferedReader inFromUser =
+                    new BufferedReader(
+                            new InputStreamReader(System.in));
+            Socket clientSocket = new Socket("127.0.0.1", 6789);
+            DataOutputStream outToServer =
+                    new DataOutputStream(
+                            clientSocket.getOutputStream());
+            BufferedReader inFromServer =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    clientSocket.getInputStream()));
+            modifiedSentence="";
+            int count=0;
+            while (count<10){
+                sentence = inFromUser.readLine();
+            outToServer.writeBytes(sentence + "\n");
+            modifiedSentence = inFromServer.readLine();
+            System.out.println("FROM SERVER: " + modifiedSentence);
+            count++;
+        }
+            clientSocket.close();
+        }
+    }
+*/
+
+    public static void main(String argv[]) throws Exception
+    {
+     /*   String sentence;
+        String modifiedSentence;
+        BufferedReader inFromUser =
+                new BufferedReader(
+                        new InputStreamReader(System.in));
+        Socket clientSocket = new Socket ("127.0.0.1",6789);
+        DataOutputStream outToServer =
+                new DataOutputStream(
+                        clientSocket.getOutputStream());
+        BufferedReader inFromServer =
+                new BufferedReader(
+                        new InputStreamReader(
+                                clientSocket.getInputStream()));
+        sentence = inFromUser.readLine();
+        while (true) {
+            outToServer.writeBytes(sentence + "\n");
+            modifiedSentence = inFromServer.readLine();
+            System.out.println("FROM SERVER: " + modifiedSentence);
+        }*/
+   //     clientSocket.close();
+        Run run=new Run();
+        while (true){
+        run.run();
+        }
+    }
+}
+
+// 1.отправл€ем запрос на разрешение работы
+//2.ѕри положительном ответе отправл€ем им€ и пароль
+//3.получам список кандидатов
+//4.голосуем
+//5.отправл€ем олос
+
+
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+/**
+ * Created by triest on 18.06.2017.
+ */
+public class Run {
+    String sentence;
+    String modifiedSentence;
+
+        void run() throws IOException {
+            BufferedReader inFromUser =
+                    new BufferedReader(
+                            new InputStreamReader(System.in));
+            Socket clientSocket = new Socket ("127.0.0.1",6789);
+            DataOutputStream outToServer =
+                    new DataOutputStream(
+                            clientSocket.getOutputStream());
+            BufferedReader inFromServer =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    clientSocket.getInputStream()));
+            sentence = inFromUser.readLine();
+           // while (true) {
+                outToServer.writeBytes(sentence + "\n");
+                modifiedSentence = inFromServer.readLine();
+                System.out.println("FROM SERVER: " + modifiedSentence);
+            //}
+            //     clientSocket.close();
+        }
+}

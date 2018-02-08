@@ -1,0 +1,21 @@
+import java.io.IOException;
+
+/**
+ * Created by triest on 25.03.2017.
+ */
+
+public class Main {
+
+
+
+
+
+        public static void main(String args[]) throws IOException {
+
+           WeatherHttpClient weatherHttpClient=new WeatherHttpClient();
+            String res=weatherHttpClient.getWeatherData("Petrozavadsk");
+            System.out.print(res);
+        }
+
+
+}

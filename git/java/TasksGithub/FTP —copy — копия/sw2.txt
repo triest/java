@@ -1,0 +1,116 @@
+
+Site1-SW2#conf t
+Enter configuration Commands, one per line.  End with CNTL/Z.
+Site1-SW2(config)#int fa0/0
+%Invalid interface type and number
+Site1-SW2(config)#int fa0/10
+Site1-SW2(config-if)#no shut
+Site1-SW2(config-if)#int fa0/15
+Site1-SW2(config-if)#no shut
+Site1-SW2(config-if)#int g0/1
+Site1-SW2(config-if)#no shut
+
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to down
+Site1-SW2(config-if)#int g0/2
+Site1-SW2(config-if)#no shut
+
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to down
+Site1-SW2(config-if)#exit
+Site1-SW2(config)#sh ip int br
+                   ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2(config)#end
+Site1-SW2#
+%SYS-5-CONFIG_I: Configured from Console by Console
+
+Site1-SW2#sh ip int br
+Interface              IP-Address      OK? Method Status                Protocol
+ 
+FastEthernet0/1        unassigned      YES manual down                  down
+ 
+FastEthernet0/2        unassigned      YES manual down                  down
+ 
+FastEthernet0/3        unassigned      YES manual administratively down down
+ 
+FastEthernet0/4        unassigned      YES manual down                  down
+ 
+FastEthernet0/5        unassigned      YES manual down                  down
+ 
+FastEthernet0/6        unassigned      YES manual down                  down
+ 
+FastEthernet0/7        unassigned      YES manual down                  down
+ 
+FastEthernet0/8        unassigned      YES manual down                  down
+ 
+FastEthernet0/9        unassigned      YES manual down                  down
+ 
+FastEthernet0/10       unassigned      YES manual down                  down
+ 
+FastEthernet0/11       unassigned      YES manual down                  down
+ 
+FastEthernet0/12       unassigned      YES manual down                  down
+ 
+FastEthernet0/13       unassigned      YES manual down                  down
+ 
+FastEthernet0/14       unassigned      YES manual down                  down
+ 
+FastEthernet0/15       unassigned      YES manual down                  down
+ 
+FastEthernet0/16       unassigned      YES manual down                  down
+ 
+FastEthernet0/17       unassigned      YES manual down                  down
+ 
+FastEthernet0/18       unassigned      YES manual down                  down
+ 
+FastEthernet0/19       unassigned      YES manual down                  down
+ 
+FastEthernet0/20       unassigned      YES manual down                  down
+ 
+FastEthernet0/21       unassigned      YES manual administratively down down
+ 
+FastEthernet0/22       unassigned      YES manual down                  down
+ 
+FastEthernet0/23       unassigned      YES manual down                  down
+ 
+FastEthernet0/24       unassigned      YES manual down                  down
+ 
+GigabitEthernet0/1     unassigned      YES manual down                  down
+ 
+GigabitEthernet0/2     unassigned      YES manual down                  down
+ 
+Vlan1                  unassigned      YES manual administratively down down
+ 
+Vlan101                192.168.101.22  YES manual up                    down
+Site1-SW2#           
+Site1-SW2#ip default-gatherway 192.168.101.1
+             ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2#conf t
+Enter configuration Commands, one per line.  End with CNTL/Z.
+Site1-SW2(config)#ip default gatherway 192.168.101.1
+                             ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2(config)#ip default-gatherway 192.168.101.1
+                                ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2(config)#exit
+Site1-SW2#
+%SYS-5-CONFIG_I: Configured from Console by Console
+
+Site1-SW2#sh ip route
+                ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2#sh ip routed
+                ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2#sh ip route
+                ^
+% Invalid input detected at '^' marker.
+	
+Site1-SW2#

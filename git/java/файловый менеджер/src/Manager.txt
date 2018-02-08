@@ -1,0 +1,71 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+/**
+ * Created by triest on 23.04.2017.
+ */
+/*
+1.1.2.	Manager. Написать класс, который будет содержать бизнес-логику вашего приложения (производить различные проверки, перед тем как совершать операции с объектами).*/
+public class Manager {
+
+    // функция, которая проверият существование файла (пути), корректность команды, и затем вызывает соответствующию функцию из DAO
+    // тут команды с аргументами
+    public void CommandCheker(String command,String parametr) {
+        DAO dao=new DAO();
+        if (command.equals("cd")) {
+            dao.changeDir(parametr);
+        } else {
+            if (command.equals("ls")) {
+                dao.ls();
+            } else {
+                if (command.equals("remove")) {
+                    try {
+                        dao.deleteFile(parametr);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    if (command.equals("touch")) {
+                        try {
+                            dao.creatFile(parametr);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        if (command.equals("find")) {
+                            dao.findFile(parametr);
+                        }
+                        else {
+                            if (command.equals("append")) {
+                                dao.appendToFile(parametr);
+                            }
+                            else {
+                                System.out.println("Command not found");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    //тут комманды без аргументов
+    public void  CommandCheker(String command){
+        DAO dao=new DAO();
+        if (command.equals("ls")) {
+            dao.ls();
+        }
+    }
+
+
+    public void SplitCommand(String commandString){
+        String[] command=commandString.split(" ");
+        if (command.length==1){
+            this.CommandCheker(command[0]);
+        }
+        else {
+            this.CommandCheker(command[0], command[1]);
+        }
+    }
+}

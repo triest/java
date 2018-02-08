@@ -1,0 +1,98 @@
+import Excaption.CommandNotFoundExsaption;
+
+import javax.mail.MessagingException;
+import javax.mail.Store;
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ * Created by triest on 16.03.2017.
+ */
+public class Dialog {
+    String[] s = new String[10];
+
+    public void AskCommand(Commands commands,Mail mail) throws CommandNotFound, IOException, MessagingException {
+
+        //  String[] s=new String[10];        s = s1.split (" ");
+        //    System.out.println (Arrays.toString (s));
+        // ������� �������� � in
+        if(mail.getPosition().equals("folder")){
+         SelectYouActionsInFolder(commands,mail,mail.getStore());}
+        if(mail.getPosition().equals("message")){
+            SelectYouActinsInEmail(commands,mail,mail.getStore());
+        }
+        System.out.println("Input command:");
+        final Scanner in = new Scanner (System.in);
+        String s1 = in.nextLine ();
+        s=s1.split(" ");
+        try {
+            commands.applyCommand (s,mail,mail.getStore());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+      //  mail.getPosition();
+    }
+
+    public void SelectFolder(Commands commands,Mail mail){
+        System.out.println("Enter number of folder");
+        System.out.println("1.INBOX");
+        System.out.println("2.PUTBOX");
+/*
+        try {
+            try {
+                AskCommand(commands,mail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+        } catch (CommandNotFound commandNotFound) {
+            commandNotFound.printStackTrace();
+        }*/
+    }
+
+    public void SelectYouActionsInFolder(Commands commands, Mail mail, Store store) throws CommandNotFound, IOException, MessagingException {
+        System.out.println("Select you actions");
+        System.out.println("1.Refresh folder");
+        System.out.println("2.Open letter");
+      //  final Scanner in = new Scanner (System.in);
+     //   String s1 = in.nextLine ();
+      //  AskCommand(commands,mail);
+/*
+        s = s1.split (" ");
+        String s2=s[0];
+
+        try {
+            commands.applyCommand (s2,mail,store);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        //    commands.applyCommand(s1,mail,mail.getStore());
+            }
+
+
+    public void SelectYouActinsInEmail(Commands commands, Mail mail, Store store) throws CommandNotFound, IOException, MessagingException {
+        System.out.println("1.Exit to folder");
+        System.out.println("2.Delete this Email");
+        System.out.println("3.Retry this email");
+        final Scanner in = new Scanner (System.in);
+    //    AskCommand(commands, mail);
+     /*   String s1 = in.nextLine ();
+               //  String[] s=new String[10];
+        s = s1.split (" ");
+        String s2=s[0];
+        //    System.out.println (Arrays.toString (s));
+        // ������� �������� � in
+        try {
+            commands.applyCommand (s2,mail,store);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+    }
+
+
+}

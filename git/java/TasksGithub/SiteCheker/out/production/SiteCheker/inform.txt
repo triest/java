@@ -1,0 +1,68 @@
+    1xx: Informational (информационные):
+        100 Continue («продолжай»)[2][3].
+        101 Switching Protocols («переключение протоколов»)[2][3].
+        102 Processing («идёт обработка»).
+    2xx: Success (успешно):
+        200 OK («хорошо»)[2][3].
+        201 Created («создано»)[2][3][4].
+        202 Accepted («принято»)[2][3].
+        203 Non-Authoritative Information («информация не авторитетна»)[2][3].
+        204 No Content («нет содержимого»)[2][3].
+        205 Reset Content («сбросить содержимое»)[2][3].
+        206 Partial Content («частичное содержимое»)[2][3].
+        207 Multi-Status («многостатусный»)[5].
+        226 IM Used («использовано IM»).
+    3xx: Redirection (перенаправление):
+        300 Multiple Choices («множество выборов»)[2][6].
+        301 Moved Permanently («перемещено навсегда»)[2][6].
+        302 Moved Temporarily («перемещено временно»)[2][6].
+        302 Found («найдено»)[6].
+        303 See Other (смотреть другое)[2][6].
+        304 Not Modified (не изменялось)[2][6].
+        305 Use Proxy («использовать прокси»)[2][6].
+        306 — зарезервировано (код использовался только в ранних спецификациях)[6].
+        307 Temporary Redirect («временное перенаправление»)[6].
+    4xx: Client Error (ошибка клиента):
+        400 Bad Request («плохой, неверный запрос»)[2][3][4].
+        401 Unauthorized («не авторизован»)[2][3].
+        402 Payment Required («необходима оплата»)[2][3].
+        403 Forbidden («запрещено»)[2][3].
+        404 Not Found («не найдено»)[2][3].
+        405 Method Not Allowed («метод не поддерживается»)[2][3].
+        406 Not Acceptable («неприемлемо»)[2][3].
+        407 Proxy Authentication Required («необходима аутентификация прокси»)[2][3].
+        408 Request Timeout («истекло время ожидания»)[2][3].
+        409 Conflict («конфликт»)[2][3][4].
+        410 Gone («удалён»)[2][3].
+        411 Length Required («необходима длина»)[2][3].
+        412 Precondition Failed («условие ложно»)[2][3][7].
+        413 Request Entity Too Large («размер запроса слишком велик»)[2][3].
+        414 Request-URI Too Large («запрашиваемый URI слишком длинный»)[2][3].
+        415 Unsupported Media Type («неподдерживаемый тип данных»)[2][3].
+        416 Requested Range Not Satisfiable («запрашиваемый диапазон не достижим»)[3].
+        417 Expectation Failed («ожидаемое неприемлемо»)[3].
+        422 Unprocessable Entity («необрабатываемый экземпляр»).
+        423 Locked («заблокировано»).
+        424 Failed Dependency («невыполненная зависимость»).
+        425 Unordered Collection («неупорядоченный набор»)[8].
+        426 Upgrade Required («необходимо обновление»).
+        428 Precondition Required («необходимо предусловие»)[9].
+        429 Too Many Requests («слишком много запросов»)[9].
+        431 Request Header Fields Too Large («поля заголовка запроса слишком большие»)[9].
+        434 Requested host unavailable. («Запрашиваемый адрес недоступен»)[источник не указан 1279 дней]
+        444 Закрывает соединение без передачи заголовка ответа. Нестандартный код [10]
+        449 Retry With («повторить с»)[1].
+        451 Unavailable For Legal Reasons («недоступно по юридическим причинам»)[11].
+    5xx: Server Error (ошибка сервера):
+        500 Internal Server Error («внутренняя ошибка сервера»)[2][3].
+        501 Not Implemented («не реализовано»)[2][3].
+        502 Bad Gateway («плохой, ошибочный шлюз»)[2][3].
+        503 Service Unavailable («сервис недоступен»)[2][3].
+        504 Gateway Timeout («шлюз не отвечает»)[2][3].
+        505 HTTP Version Not Supported («версия HTTP не поддерживается»)[2][3].
+        506 Variant Also Negotiates («вариант тоже проводит согласование»)[12]
+        507 Insufficient Storage («переполнение хранилища»).
+        508 Loop Detected («обнаружено бесконечное перенаправление»)[13]
+        509 Bandwidth Limit Exceeded («исчерпана пропускная ширина канала»).
+        510 Not Extended («не расширено»).
+        511 Network Authentication Required («требуется сетевая аутентификация»)[9].

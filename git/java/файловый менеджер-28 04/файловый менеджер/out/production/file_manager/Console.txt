@@ -1,0 +1,35 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ * Created by triest on 05.03.2017.
+ */
+public class Console1 {
+    String[] s = new String[10];
+    Manager manager;
+    Console1(){
+         manager=new Manager();
+    }
+
+    //������� ������� ��������
+    public void ascCommand(DAO dao) throws IOException {
+        System.out.println ("Input command:");
+
+        final Scanner in = new Scanner (System.in);
+        String s1 = in.nextLine ();
+        //  String[] s=new String[10];
+
+    //    s = s1.split (" ");
+        manager.SplitCommand(s1);
+
+        //    System.out.println (Arrays.toString (s));
+        // ������� �������� � in
+
+    }
+
+
+
+
+
+}
+

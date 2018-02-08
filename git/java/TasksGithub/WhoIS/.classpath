@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/WhoIS/src"/>
+	<classpathentry kind="lib" path="/WhoIS/pxe-boot-manager-1.0-jar-with-dependencies.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/pxe-boot-manager-1.0-jar-with-dependencies"/>
+	<classpathentry exported="true" kind="lib" path="/WhoIS/pxe-boot-manager-1.3-jar-with-dependencies.jar"/>
+	<classpathentry exported="true" kind="lib" path="/WhoIS/tftpd-1.3-jar-with-dependencies.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

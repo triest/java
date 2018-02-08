@@ -1,0 +1,22 @@
+[C:\, D:\, E:\]
+Dirname \Документы
+else run
+s: E:\\\Документы
+E:\\\Документы
+CurrentDirE:\\\Документы
+[E:\Документы\2017-03-20 19.59.06.jpg, E:\Документы\Alien Isolation Digital Deluxe Edition.lnk, E:\Документы\Angularjs, E:\Документы\Battlefield 4.lnk, E:\Документы\DOOM.lnk, E:\Документы\Endless Space 2.lnk, E:\Документы\java, E:\Документы\karden.txt, E:\Документы\ks_anketa.doc, E:\Документы\lenovo, E:\Документы\LG 43UH651V.pdf, E:\Документы\PlayGTAV — ярлык.lnk, E:\Документы\powermill, E:\Документы\screen.PNG, E:\Документы\solidworks, E:\Документы\Stellaris.lnk, E:\Документы\STM32, E:\Документы\The Witcher 3 Wild Hunt - Game of the Year Edition.lnk, E:\Документы\ticket_71274642752936.pdf, E:\Документы\ticket_71324642771383.pdf, E:\Документы\архив торрентов, E:\Документы\верхние важины, E:\Документы\договор, E:\Документы\задание, E:\Документы\зп.txt, E:\Документы\Игры, E:\Документы\книги, E:\Документы\музыка, E:\Документы\Новый текстовый документ.txt, E:\Документы\письмо.docx, E:\Документы\Программы, E:\Документы\Скриншот 2016-10-21 17.22.30.png, E:\Документы\Скриншот 2016-10-21 21.02.52.png, E:\Документы\Старые данные Firefox, E:\Документы\устройство автомобиля, E:\Документы\УЧЕБА, E:\Документы\фильмы, E:\Документы\флешка, E:\Документы\фотоархив, E:\Документы\электротехника]
+Dirname \Фильмы
+else run
+s: E:\\\Документы\\Фильмы
+E:\\\Документы\\Фильмы
+CurrentDirE:\\\Документы\\Фильмы
+[E:\Документы\Фильмы\Adobe_Acrobat_1010_Pro.rar, E:\Документы\Фильмы\Butusov_DivX.avi, E:\Документы\Фильмы\Den.Rossii.v.Krymu.12.06.2015.avi, E:\Документы\Фильмы\Gorodok_2011, E:\Документы\Фильмы\Keeping.Up.with.the.Joneses.2016.HDRip-AVC.mkv, E:\Документы\Фильмы\Koe_De_Oshigoto_[Anything-group], E:\Документы\Фильмы\Koukaku No Pandora TV, E:\Документы\Фильмы\Krym-Put.Na.Rodinu.SATRip.avi, E:\Документы\Фильмы\NANA_TV, E:\Документы\Фильмы\Nebo.Irii.ili.leto.NLO.(6.serii.iz.6).2005.x264.DVDRip, E:\Документы\Фильмы\Oregairu [TV-2], E:\Документы\Фильмы\Prometheus (FAN-cut) Full++.avi, E:\Документы\Фильмы\Sankarea [BDRip 1920x1080 x264 FLAC], E:\Документы\Фильмы\Sankarea [BD] [720p], E:\Документы\Фильмы\The Expanse - Season 2 (AlexFilm) WEB-DL 720p, E:\Документы\Фильмы\The.Big.Bang.Theory.S10E21.HDTV.Kuraj-Bambey.Rus.mp4, E:\Документы\Фильмы\Torzok_Ka52.wmv, E:\Документы\Фильмы\u.p.h.v.pjat, E:\Документы\Фильмы\Up.HochuVseRzhat4.WEBRip1080p.mp4, E:\Документы\Фильмы\Up.IgraPrikolov.WEBRip1080p.mp4, E:\Документы\Фильмы\UP.Nelza.v.illuminatore (2016).WEB-DL.1080p.mp4, E:\Документы\Фильмы\[RG lucky Clover] OreGairu [BD] [480p], E:\Документы\Фильмы\Уральские пельмени. Оливьеды (2016.12.31-2017.01.01).avi]
+Dirname ..
+E:\\\Документы\\Фильмы
+15
+E:\\\Документы\\
+CurrentDirE:\\\Документы\\
+[E:\Документы\2017-03-20 19.59.06.jpg, E:\Документы\Alien Isolation Digital Deluxe Edition.lnk, E:\Документы\Angularjs, E:\Документы\Battlefield 4.lnk, E:\Документы\DOOM.lnk, E:\Документы\Endless Space 2.lnk, E:\Документы\java, E:\Документы\karden.txt, E:\Документы\ks_anketa.doc, E:\Документы\lenovo, E:\Документы\LG 43UH651V.pdf, E:\Документы\PlayGTAV — ярлык.lnk, E:\Документы\powermill, E:\Документы\screen.PNG, E:\Документы\solidworks, E:\Документы\Stellaris.lnk, E:\Документы\STM32, E:\Документы\The Witcher 3 Wild Hunt - Game of the Year Edition.lnk, E:\Документы\ticket_71274642752936.pdf, E:\Документы\ticket_71324642771383.pdf, E:\Документы\архив торрентов, E:\Документы\верхние важины, E:\Документы\договор, E:\Документы\задание, E:\Документы\зп.txt, E:\Документы\Игры, E:\Документы\книги, E:\Документы\музыка, E:\Документы\Новый текстовый документ.txt, E:\Документы\письмо.docx, E:\Документы\Программы, E:\Документы\Скриншот 2016-10-21 17.22.30.png, E:\Документы\Скриншот 2016-10-21 21.02.52.png, E:\Документы\Старые данные Firefox, E:\Документы\устройство автомобиля, E:\Документы\УЧЕБА, E:\Документы\фильмы, E:\Документы\флешка, E:\Документы\фотоархив, E:\Документы\электротехника]
+Input command:
+E:\\\Документы\\\winpost1.txt
+Input command:

@@ -1,0 +1,104 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by triest on 17.04.2017.
+ */
+public class File {
+FileWriter writer;
+
+
+    public void setMap(Map<String, Integer> map) {
+        this.map = map;
+    }
+
+
+    Map<String, Integer> map = new HashMap<String, Integer>();
+
+    public File() throws IOException {
+        try(FileWriter writer = new FileWriter("E:\\Dropbox\\Java\\TasksGithub\\SiteCheker\\SiteHistory.txt", false))
+        {   setWriter(writer);
+                }
+
+    }
+
+    public FileWriter getWriter() {
+        return writer;
+    }
+
+    public void setWriter(FileWriter writer) {
+        this.writer = writer;
+    }
+
+    public void writeToFile(String data) throws IOException {
+      /*  try(FileOutputStream fos=new FileOutputStream("E:\\Dropbox\\Java\\TasksGithub\\SiteCheker\\src\\SiteHistory.txt"))
+        {*/
+            // перевод строки в байты
+        FileWriter fileWriter = null;
+
+        BufferedWriter bufferedWriter = null;
+
+        PrintWriter printWriter = null;
+        try {
+
+            //Wrapping FileWriter object in BufferedWriter
+
+
+            fileWriter = new FileWriter("E:\\Dropbox\\Java\\TasksGithub\\SiteCheker\\src\\SiteHistory.txt", true);
+
+            //Wrapping FileWriter object in BufferedWriter
+
+            bufferedWriter = new BufferedWriter(fileWriter);
+
+            //Wrapping BufferedWriter object in PrintWriter
+
+            printWriter = new PrintWriter(bufferedWriter);
+
+            //Bringing cursor to next line
+
+           // printWriter.println();
+            printWriter.println(data);
+//            BufferedWriter out = new BufferedWriter(new FileWriter("E:\\Dropbox\\Java\\TasksGithub\\SiteCheker\\src\\SiteHistory.txt"));
+
+           // out.write(data+"\n");
+           // out.close();
+        ////    out = new BufferedWriter(new FileWriter("E:\\Dropbox\\Java\\TasksGithub\\SiteCheker\\src\\SiteHistory.txt", true));
+       //     out.write("aString2");
+         //   out.close();
+
+        }
+        catch (IOException e) {
+            System.out.println("exception occoured"+ e);
+        }
+        finally {
+            printWriter.close();
+            bufferedWriter.close();
+            fileWriter.close();
+        }
+
+        }
+//            fbw.close();
+       //     fos.write(buffer, 0, buffer.length);
+
+
+
+    //будет считывать список сайтов из
+    public void readLines(String filename,PeriodicChecker periodicChecker) throws IOException {
+        FileReader fileReader = new FileReader(filename);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        while ((line = bufferedReader.readLine()) != null) {
+            lines.add(line);
+        }
+        bufferedReader.close();
+        //    System.out.print(Arrays.asList(lines.toArray(new String[lines.size()])));
+        periodicChecker.SiteList=lines.toArray(new String[lines.size()]);
+    }
+}
+
+
+

@@ -1,0 +1,80 @@
+import net.sourceforge.jpcap.capture.PacketCapture;
+import net.sourceforge.jpcap.capture.RawPacketListener;
+import net.sourceforge.jpcap.net.RawPacket;
+import org.jnetpcap.Pcap;
+import org.jnetpcap.PcapIf;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * jpcap Tutorial - Sniffer example
+ *
+ * @author Rex Tsai
+ * @version $Revision: 1.1 $
+ * @lastModifiedBy $Author: pcharles $
+ * @lastModifiedAt $Date: 2002/02/18 21:49:49 $
+ */
+public class Main
+{
+    private static final int INFINITE = -1;
+    private static final int PACKET_COUNT = 10;
+
+    // BPF filter for capturing any packet
+    private static final String FILTER = "";
+
+    private PacketCapture m_pcap;
+    private String m_device;
+
+    public Main() throws Exception {
+        // Step 1:  Instantiate Capturing Engine
+        m_pcap = new PacketCapture();
+
+        // Step 2:  Check for devices
+        m_device = m_pcap.findDevice();
+
+        // Step 3:  Open Device for Capturing (requires root)
+        m_pcap.open(m_device, true);
+
+        // Step 4:  Add a BPF Filter (see tcpdump documentation)
+        m_pcap.setFilter(FILTER, true);
+
+        // Step 5:  Register a Listener for Raw Packets
+        m_pcap.addRawPacketListener(new RawPacketHandler());
+
+        // Step 6:  Capture Data (max. PACKET_COUNT packets)
+        m_pcap.capture(PACKET_COUNT);
+    }
+
+    public static void main(String[] args) {
+        List<PcapIf> alldevs = new ArrayList<PcapIf>(); // Will be filled with NICs
+        StringBuilder errbuf = new StringBuilder(); // For any error msgs
+        int r = Pcap.findAllDevs(alldevs, errbuf);
+        if (r == Pcap.NOT_OK || alldevs.isEmpty()) {
+            System.err.printf("Can't read list of devices, error is %s",
+                    errbuf.toString());
+            return;
+        }
+        System.out.println("Network devices found:");
+        int i = 0;
+        for (PcapIf device : alldevs) {
+            String description = (device.getDescription() != null) ? device
+                    .getDescription() : "No description available";
+            System.out.printf("#%d: %s [%s]\n", i++, device.getName(),
+                    description);
+        }
+    }
+}
+
+
+class RawPacketHandler implements RawPacketListener
+{
+    private static int m_counter = 0;
+
+    public void rawPacketArrived(RawPacket data) {
+        m_counter++;
+        System.out.println("Received packet (" + m_counter + ")");
+    }
+}
+

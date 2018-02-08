@@ -1,0 +1,89 @@
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPConnectionClosedException;
+import org.apache.commons.net.ftp.FTPFile;
+
+import java.io.*;
+import java.net.SocketException;
+
+public class Main {
+
+    public static void main(String argv[]) throws IOException {
+        try {
+            FTPClient client = new FTPClient();
+                       client.connect("127.0.0.1");
+            boolean login1 = client.login("user1", "7225");
+
+            if (login1 != false) {
+             //   System.out.println("Remote system is " + client.getSystemName());
+                String[] ftpFile;
+                ftpFile = client.listNames();
+           //     System.out.println("file:  " + Arrays.asList(ftpFile));
+                System.out.println();
+                client.changeWorkingDirectory("RSE");
+                ftpFile = client.listNames();
+         //       System.out.println("RSE " + Arrays.toString(ftpFile));
+
+               /*
+               ������� �������
+                             */
+                try {
+
+                    String remoteFile1 = "HQ2.txt";
+                    //    File downloadFile1 = new File("E:/Dropbox/HQ2.txt");
+                    File downloadFile1=new File("E:/Dropbox/"+remoteFile1);
+                    OutputStream outputStream1 = new BufferedOutputStream (new FileOutputStream (downloadFile1));
+                    boolean success = client.retrieveFile(remoteFile1, outputStream1);
+
+                    System.out.println(success);
+                    outputStream1.close();
+                    if (success == true) {
+                        System.out.println("File vas download!");
+                    }
+                    else System.out.println("False");
+
+                } catch (SocketException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+
+                //����� ������
+                try {
+                    System.out.println();
+                    System.out.println("Start upload");
+                    //       client.setFileType(FTP.BINARY_FILE_TYPE);
+                    File file = new File ("E:/Dropbox/tihonenko old.pfx");
+                    String patch="E:/Dropbox/npm-debug.log";
+                   String testName = file.getName();
+
+                    if ((!file.exists()) || (!file.canRead())){
+                        System.err.println("File Not Found or Unreadable: " + file.getName());
+                    }
+                    FileInputStream fis = new FileInputStream(file);
+                                boolean result = client.storeFile(testName, fis);
+                    System.out.println(file.getPath());
+                    if (result == true) {
+                        System.out.println("File was upload");
+                    } else {
+                        System.out.println("FAIL upload");
+                    }
+                    // ����� �������.
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+            //��������� ����������
+            client.disconnect();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }

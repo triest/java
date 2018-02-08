@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/amailLib/dsn.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/amailLib/imap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/amailLib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/amailLib/mailapi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/amailLib/pop3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/amailLib/smtp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jsoup-1.10.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>

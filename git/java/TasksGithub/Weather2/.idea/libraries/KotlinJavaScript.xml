@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="KotlinJavaScript">
+    <CLASSES>
+      <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-js.jar!/" />
+      <root url="jar://$PROJECT_DIR$/json-jena-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-js-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

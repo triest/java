@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="KotlinJavaRuntime">
+    <CLASSES>
+      <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime.jar!/" />
+      <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-reflect.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/jnetpcap-1.4.r1425-1e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dspace-lni-client-1.5.0-beta2-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/jnetpcap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/net.sourceforge.jpcap-0.01.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/TunnelliJ_3707.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="jar://$PROJECT_DIR$/src/jpcap-0.01.16-win32.zip!/" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/net.sourceforge.jpcap-0.01.16.jar!/" />
+    </SOURCES>
+  </library>
+</component>

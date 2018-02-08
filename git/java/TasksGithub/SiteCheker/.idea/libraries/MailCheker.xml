@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="MailCheker">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../MailCheker" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../MailCheker/src" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../MailCheker" recursive="false" />
+  </library>
+</component>

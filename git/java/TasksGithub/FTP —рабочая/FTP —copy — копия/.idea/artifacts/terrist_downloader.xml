@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="terrist_downloader">
+    <output-path>E:/</output-path>
+    <root id="archive" name="terrist_downloader.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="FTP" />
+    </root>
+  </artifact>
+</component>

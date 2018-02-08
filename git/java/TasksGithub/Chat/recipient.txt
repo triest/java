@@ -1,0 +1,99 @@
+/**
+ * Created by triest on 30.03.2017.
+ */
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Scanner;
+
+
+class Recipient{
+        int port;
+        String host;
+
+    public int getPort() {
+        return port;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public void recivedMessage() {
+            try {
+                  DatagramSocket ds = new DatagramSocket(1050);
+                while (true) {
+                       DatagramPacket pack = new DatagramPacket(new byte[1024], 1024);
+                    ds.receive(pack);
+                    System.out.println(new String(pack.getData()));
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+
+
+    public void sendMessage(String mes){
+
+        try{
+
+            byte[] data = mes.getBytes();
+
+            InetAddress addr = InetAddress.getByName(host);
+
+            DatagramPacket pack = new DatagramPacket(data, data.length, addr, port);
+
+            DatagramSocket ds = new DatagramSocket();
+
+            ds.send(pack);
+
+            ds.close();
+
+        }catch(IOException e){
+
+            System.err.println(e);
+
+        }
+
+    }
+
+    public static void main1(String[] args){
+
+        Sender sndr = new Sender("localhost", 1050);
+
+        for (int k = 0; k < args.length; k++)
+            sndr.sendMessage(args[k]);
+
+    }
+
+    public void AscMessage(){
+        System.out.print(">");
+        final Scanner in = new Scanner (System.in);
+        String s1 = in.nextLine ();
+        this.sendMessage(s1);
+    }
+
+    public static void main(String[] args) throws IOException {
+            try {
+                DatagramSocket ds = new DatagramSocket(1050);
+                DatagramPacket pack = new DatagramPacket(new byte[1024], 1024);
+                while (true) {
+                    ds.receive(pack);
+                    System.out.println(new String(pack.getData()));
+                }
+            }
+                catch(Exception e){
+            System.out.println(e);
+    }
+    }
+}

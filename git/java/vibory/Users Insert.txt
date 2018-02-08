@@ -1,0 +1,10 @@
+INSERT INTO dbo.Users VALUES ('name','login','password',0)
+
+INSERT INTO dbo.Candidats VALUES ('Medvedev',0)
+
+
+CREATE PROCEDURE insert_candidats(@candidate_name char(20))
+as
+INSERT INTO dbo.Candidats VALUES (@candidate_name,0)
+
+

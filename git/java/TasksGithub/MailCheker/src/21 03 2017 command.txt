@@ -1,0 +1,58 @@
+import Excaption.CommandNotFoundExsaption;
+
+import javax.mail.MessagingException;
+import javax.mail.Store;
+import java.io.IOException;
+
+/**
+ * Created by triest on 18.03.2017.
+ */
+public class Commands {
+
+    public void ShowContekstMeny(Mail mail,Dialog dialog,Commands commands) throws CommandNotFound, IOException, MessagingException {
+        if(mail.getPosition().equals("folder")){
+                dialog.AskCommand(commands,mail);
+        }
+        if(mail.getPosition().equals("message")){
+            dialog.SelectYouActinsInEmail(this,mail,mail.getStore());
+        }
+    }
+
+
+
+    public void applyCommand(String s[], Mail mail, Store store) throws IOException, MessagingException {
+        System.out.println("Apply command is work");
+        String position=mail.getPosition();
+
+        //�� �������� position.equals
+        if (position.equals("folder")){
+            System.out.println("in folder");
+            if(s[0].equals("2")){// ������� �����
+                System.out.println("Display message:");
+                mail.displayMessage(mail.getHost(),mail.getUsername(),mail.getPassword(),mail.getStore(),mail.getFolder(),0);
+            }
+            if(s[0].equals("1")){//
+                System.out.println("Display folder:");
+                mail.ShowOpenFolder(mail.getHost(),mail.getUsername(),mail.getPassword(),mail.getStore(),mail.getFolder());
+            }
+        }
+        else {
+            if (position.equals("message")){
+                System.out.println("in message");
+                if(s.equals("1")){
+                    mail.ShowOpenFolder(mail.getHost(),mail.getUsername(),mail.getPassword(),mail.getStore(),mail.getFolder());
+                }
+
+              if(s.equals("2")){
+                  // ��� ����� ���, ��� ������ ������ ��������� ������.
+                  System.out.println("In message 1");
+              }
+                if(s.equals("2")){
+                  System.out.println("In messsage 2");
+                    // ��� ����� ���, ��� ������ ������ �������� ������.
+                }
+            }
+        }
+        System.out.println("OY");
+    }
+}

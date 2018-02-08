@@ -1,0 +1,129 @@
+/**
+ * Created by triest on 05.03.2017.
+ */
+import org.apache.commons.net.ftp.FTPClient;
+
+import java.io.IOException;
+
+public class Commands {
+
+    //функция определения команды, и вызова соответствующей функции
+    public void applyCommand(String[] command, FTPClient client,FTPfunction ftPfunction,Console console) throws IOException {
+        // формат комманды connect
+        if (command[0].equals ("connect")){
+            console.askHostname (ftPfunction);
+            console.askUsername (ftPfunction);
+            console.askPasswort (ftPfunction);
+            if (connect (client,ftPfunction.getHostname (),ftPfunction.getUsername (),ftPfunction.getPassword ())){
+                System.out.println ("Connected");
+            }
+                else {
+                System.out.println ("Connect Fail");
+            }
+        }
+
+            else {
+            if (client.sendNoOp() == true) {
+                              if (command[0].equals ("disconnect")) {
+                    client.disconnect ();
+                } else {
+                    // косанды изминения дирректории
+                    if (command[0].equals ("cd")) {
+                        try {
+                            if (ftPfunction.changeDirectory (client, command[1]) == true) {
+                                System.out.println (client.printWorkingDirectory ());
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace ();
+                        }
+                    } else {
+                        if (command[0].equals ("download")) {
+                            boolean rez = download (client, console, ftPfunction);
+                            if (rez == true) {
+                                System.out.println ("Download suscefelu");
+                            } else {
+                                System.out.println ("Download fail");
+                            }
+                        } else {
+                            if (command[0].equals ("upload")) {
+                                boolean rez = upload (client, console, ftPfunction);
+                                if (rez == true) {
+                                    System.out.println ("Upload sucsefulu");
+                                } else {
+                                    System.out.println ("Upload Fail");
+                                }
+                            } else {
+                                if (command[0].equals ("ls")) {
+                                    ftPfunction.listDirectory (client);
+                                } else {
+                                    if (command[0].equals ("exit")) {
+                                        System.out.println ("Good Bye");
+                                        System.exit (0);
+                                    } else {
+                                        if (command[0].equals ("delete")) {
+                                            boolean rez = delete (client, console, ftPfunction);
+                                            if (rez == true) {
+                                                System.out.println ("File was deleted");
+                                            } else {
+                                                System.out.println ("File not found");
+                                            }
+                                        } else {
+                                            System.out.println ("Command not found");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                System.out.println ("You are not ");
+
+            } else {
+            }
+
+        }
+        }
+
+
+
+public static boolean delete(FTPClient client,Console console,FTPfunction ftPfunction){
+        String Name=console.AskFileNameDownload (client);
+    try {
+        return ftPfunction.deleteFile (client,Name);
+    } catch (IOException e) {
+        System.out.println ("File not found");
+        e.printStackTrace ();
+    }
+    return false;
+}
+
+public static boolean download(FTPClient client,Console console,FTPfunction ftPfunction){
+    String Name=console.AskFileNameDownload (client);
+    String Directory=console.AskDirectoryeNameDownload (client);
+   return ftPfunction.downloadFile (client,Name,Directory);
+
+}
+
+
+public static boolean upload(FTPClient client,Console console,FTPfunction ftPfunction){
+    String FileName=console.AskFileNameDownload (client);
+    return ftPfunction.uploadFile (client,FileName);
+}
+
+
+    public static boolean connect(FTPClient ftpClient,String hostname,String username,String password) {
+       try {
+          ftpClient.connect (hostname);
+          boolean login=ftpClient.login (username,password);
+           boolean answer=ftpClient.sendNoOp ();
+           if (login==true&&answer==true){
+               return true;
+           }
+            else {return false;}
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+}

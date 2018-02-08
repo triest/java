@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_client-server_youtube" default="compile.module.client-server_youtube">
+  <dirname property="module.client-server_youtube.basedir" file="${ant.file.module_client-server_youtube}"/>
+  
+  <property name="module.jdk.home.client-server_youtube" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.client-server_youtube" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.client-server_youtube" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.client-server_youtube" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="client-server_youtube.output.dir" value="${module.client-server_youtube.basedir}/out/production/client-server youtube"/>
+  <property name="client-server_youtube.testoutput.dir" value="${module.client-server_youtube.basedir}/out/test/client-server youtube"/>
+  
+  <path id="client-server_youtube.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="client-server_youtube.module.production.classpath">
+    <path refid="${module.jdk.classpath.client-server_youtube}"/>
+  </path>
+  
+  <path id="client-server_youtube.runtime.production.module.classpath">
+    <pathelement location="${client-server_youtube.output.dir}"/>
+  </path>
+  
+  <path id="client-server_youtube.module.classpath">
+    <path refid="${module.jdk.classpath.client-server_youtube}"/>
+    <pathelement location="${client-server_youtube.output.dir}"/>
+  </path>
+  
+  <path id="client-server_youtube.runtime.module.classpath">
+    <pathelement location="${client-server_youtube.testoutput.dir}"/>
+    <pathelement location="${client-server_youtube.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.client-server_youtube">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.client-server_youtube">
+    <patternset refid="excluded.from.module.client-server_youtube"/>
+  </patternset>
+  
+  <path id="client-server_youtube.module.sourcepath">
+    <dirset dir="${module.client-server_youtube.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.client-server_youtube" depends="compile.module.client-server_youtube.production,compile.module.client-server_youtube.tests" description="Compile module client-server youtube"/>
+  
+  <target name="compile.module.client-server_youtube.production" depends="register.custom.compilers" description="Compile module client-server youtube; production classes">
+    <mkdir dir="${client-server_youtube.output.dir}"/>
+    <javac2 destdir="${client-server_youtube.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.client-server_youtube}/javac">
+      <compilerarg line="${compiler.args.client-server_youtube}"/>
+      <bootclasspath refid="client-server_youtube.module.bootclasspath"/>
+      <classpath refid="client-server_youtube.module.production.classpath"/>
+      <src refid="client-server_youtube.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.client-server_youtube"/>
+    </javac2>
+    
+    <copy todir="${client-server_youtube.output.dir}">
+      <fileset dir="${module.client-server_youtube.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.client-server_youtube.tests" depends="register.custom.compilers,compile.module.client-server_youtube.production" description="compile module client-server youtube; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.client-server_youtube" description="cleanup module">
+    <delete dir="${client-server_youtube.output.dir}"/>
+    <delete dir="${client-server_youtube.testoutput.dir}"/>
+  </target>
+</project>

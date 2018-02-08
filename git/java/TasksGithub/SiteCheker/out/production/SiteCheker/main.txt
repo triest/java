@@ -1,0 +1,23 @@
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        //  System.out.print(getHTTPResponseStatusCode("http://google.ru"));
+        Http1 http1 = new Http1();
+        //   http1.ReadResponseFromFile("src/inform.txt");
+
+        http1.readLines("src/inform.txt");
+
+        PeriodicChecker periodicChecker=new PeriodicChecker();
+        File file=new File();
+      file.readLines("src/sites.txt",periodicChecker);
+
+        //   http1.readLines("src/inform.txt");
+      //  http1.searchIndex("http://google.ru");
+ //       System.out.print(http1.getHTTPResponseStatusCode("http://google.ru"));
+   //     File file=new File();
+        file.writeToFile(String.valueOf(http1.getHTTPResponseStatusCode("http://google.ru")));
+        Thread t=periodicChecker;
+        t.start();
+    }
+}
